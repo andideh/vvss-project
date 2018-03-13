@@ -1,0 +1,8 @@
+a,aa,1
+b,bb,2
+c,cc,3
+d,dd,4
+Andrei,Avram Iancu,18678
+Andrei,Avram Iancu,12612
+Andrei,Avram Iancu,47
+Andrei,Avram Iancu,5
