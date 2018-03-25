@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import repository.DataManager;
 import model.*;
 
@@ -16,6 +17,13 @@ public class ClientController {
     }
     
     private String ValidateClient(String name, String address, String id){
+        if (id == "" || !id.matches("^[0-9]*$")) {
+            return "Invalid id format.";
+        }
+        if  (name.length() >= 256) {
+            return "Name can not be longer than 256";
+        }
+
         if(!name.equals("") && !address.equals("") && !name.equals(" ")){
             for(int i=0;i<name.length();i++){
                 if((!Character.isUpperCase(name.charAt(i))) && (!Character.isLowerCase(name.charAt(i))) && (!Character.isSpaceChar(name.charAt(i)))){
@@ -97,7 +105,7 @@ public class ClientController {
             return "Invalid year format";
         }
 
-        if (String.valueOf(month).length() != 2) {
+        if (String.valueOf(month).length() != 2 || String.valueOf(month).length() != 1 ) {
             return "Invalid month format";
         }
 
