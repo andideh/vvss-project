@@ -7,10 +7,11 @@ import java.util.Scanner;
 import model.*;
 import controller.ClientController;;
 
+
 public class ElectricaUI {
 	public ClientController ctrl;
 	Scanner in;
-	
+
 	public ElectricaUI(ClientController ctrl)
 	{
 		this.ctrl=ctrl;
