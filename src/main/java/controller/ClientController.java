@@ -59,53 +59,11 @@ public class ClientController {
     }
     
     public String AddClientIndex(Client c, int year, int month, float toPay){
-//        if(year > 0){
-//            if(month > 0){
-//                if(toPay >= 0){
-//                    //validate client attributes
-//                    String valid;
-//                    if((valid = ValidateClient(c.Name, c.Address, c.idClient)) == null){
-//                        //check if client exist
-//                        Boolean exist = false;
-//                        for(int i=0; i<_dataManager.Clients.size(); i++){
-//                            if(_dataManager.Clients.get(i).equals(c)){
-//                                exist = true;
-//                                break;
-//                            }
-//                        }
-//                        if(exist){
-//                            Issue i = new Issue(c, year, month, toPay, 0);
-//                            //uniqueness
-//                            for(int j=0; j<_dataManager.Issues.size(); j++){
-//                                if(_dataManager.Issues.get(j).equals(i)){
-//                                    return "Monthly index already exists!";
-//                                }
-//                            }
-//
-//                            _dataManager.Issues.add(i);
-//                            _dataManager.SaveChanges();
-////                            return null;
-//                            return "Index added!";
-//                        }else{
-//                            return "Client does not exist!";
-//                        }
-//                    }else{
-//                        return valid;
-//                    }
-//                }else{
-//                    return "Money to pay can't be less than 0!";
-//                }
-//            }else{
-//                return "Month can't be 0 or less!";
-//            }
-//        }else{
-//            return "Year can't be 0 or less!";
-//        }
-        if (String.valueOf(year).length() != 4) {
-            return "Invalid year format";
+        if (year < 2015 || year > 2018) {
+            return "Invalid year";
         }
 
-        if (String.valueOf(month).length() != 2 || String.valueOf(month).length() != 1 ) {
+        if (month < 0 || month > 12) {
             return "Invalid month format";
         }
 
@@ -133,7 +91,7 @@ public class ClientController {
         _dataManager.getInvoicesList().add(issue);
         _dataManager.SaveChanges();
 
-        return "Index added";
+        return null;
     }
     
     public String ListIssue(Client client){
