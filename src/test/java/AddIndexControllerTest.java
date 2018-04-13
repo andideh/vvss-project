@@ -41,4 +41,42 @@ public class AddIndexControllerTest {
 
         Assert.assertNotNull(controller.AddClientIndex(client, year, month, toPay));
     }
+
+    @Test
+    public void test_InvalidYear() {
+        int year = 1990;
+        int month = 10;
+        float toPay = 300;
+
+        Assert.assertNotNull(controller.AddClientIndex(client, year, month, toPay));
+    }
+
+    @Test
+    public void test_invalidClient() {
+        String clientId = "";
+        String clientName = "Aaa";
+        String address = "No-address";
+        Client client = new Client(clientName, clientAddress, clientId);
+
+        int year = 2018;
+        int month = 10;
+        float toPay = 300;
+
+
+        Assert.assertNotNull(controller.AddClientIndex(client, year, month, toPay));
+    }
+
+    @Test
+    public void test_inexistentClient() {
+        String clientId = "111";
+        String clientName = "Aaa";
+        String address = "No-address";
+        Client client = new Client(clientName, clientAddress, clientId);
+
+        int year = 2018;
+        int month = 10;
+        float toPay = 300;
+        
+        Assert.assertNotNull(controller.AddClientIndex(client, year, month, toPay));
+    }
 }

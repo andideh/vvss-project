@@ -58,7 +58,7 @@ public class ClientController {
         }
     }
     
-    public String AddClientIndex(Client c, int year, int month, float toPay){
+    public String AddClientIndex(Client c, int year, int month, float toPay) {
         if (year < 2015 || year > 2018) {
             return "Invalid year";
         }
